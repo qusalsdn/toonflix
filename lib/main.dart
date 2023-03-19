@@ -21,17 +21,18 @@ class App extends StatelessWidget {
             // symmetric은 수평 or 수직에 padding을 줄 수 있다. horizontal: 수평 vertical: 수직
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(
                   height: 80,
                 ),
                 Row(
                   mainAxisAlignment:
-                      MainAxisAlignment.end, // mainAxisAlignment은 수직 방향
+                      MainAxisAlignment.end, // mainAxisAlignment은 수평 방향
                   children: [
                     Column(
                       crossAxisAlignment:
-                          CrossAxisAlignment.end, // crossAxisAlignment은 수평 방향
+                          CrossAxisAlignment.end, // crossAxisAlignment은 수직 방향
                       children: [
                         Text(
                           'Hey, Minu',
@@ -48,6 +49,50 @@ class App extends StatelessWidget {
                           ),
                         ),
                       ],
+                    )
+                  ],
+                ),
+                SizedBox(
+                  height: 120,
+                ),
+                Text(
+                  'Total Balance',
+                  style: TextStyle(
+                    color: Colors.white.withOpacity(0.8),
+                    fontSize: 22,
+                  ),
+                ),
+                SizedBox(height: 5),
+                Text(
+                  '\$5 194 482',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 42,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Row(
+                  children: [
+                    // Container는 HTML에서 div 같은 것이다.
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF2B33A),
+                        borderRadius: BorderRadius.circular(45),
+                      ),
+                      child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: 20,
+                            horizontal: 50,
+                          ),
+                          child: Text(
+                            'Transfer',
+                            style: TextStyle(
+                              fontSize: 20,
+                            ),
+                          )),
                     )
                   ],
                 )
