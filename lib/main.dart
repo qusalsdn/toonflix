@@ -14,13 +14,46 @@ class App extends StatelessWidget {
     return MaterialApp(
       // Scaffold는 뼈대이다.
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Hello flutter!'),
-        ),
-        body: Center(
-          child: Text('Hello wolrd!'),
-        ),
-      ),
+          backgroundColor:
+              Color(0xFF181818), // 0xFF 뒤에 색상값을 붙이면 custom으로 색상을 지정할 수 있다.
+          body: Padding(
+            // EdgeInsets.all()은 좌우상하 전부에 padding을 준다.
+            // symmetric은 수평 or 수직에 padding을 줄 수 있다. horizontal: 수평 vertical: 수직
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: 80,
+                ),
+                Row(
+                  mainAxisAlignment:
+                      MainAxisAlignment.end, // mainAxisAlignment은 수직 방향
+                  children: [
+                    Column(
+                      crossAxisAlignment:
+                          CrossAxisAlignment.end, // crossAxisAlignment은 수평 방향
+                      children: [
+                        Text(
+                          'Hey, Minu',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          'Welcome back',
+                          style: TextStyle(
+                            color: Colors.white.withOpacity(0.8),
+                            fontSize: 16,
+                          ),
+                        ),
+                      ],
+                    )
+                  ],
+                )
+              ],
+            ),
+          )),
     );
   }
 }
