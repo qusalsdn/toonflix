@@ -119,6 +119,8 @@ class App extends StatelessWidget {
                   height: 20,
                 ),
                 Container(
+                  // Clip.hardEdge로 인해 Container 레이아웃을 벗어나게 되면 짤리게 된다.
+                  clipBehavior: Clip.hardEdge,
                   decoration: BoxDecoration(
                     color: const Color(0xFF1F2123),
                     borderRadius: BorderRadius.circular(20),
@@ -126,6 +128,7 @@ class App extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.all(20),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,6 +166,17 @@ class App extends StatelessWidget {
                               ],
                             ),
                           ],
+                        ),
+                        Transform.scale(
+                          scale: 2.2, // 크기를 2.2배 키운다.
+                          child: Transform.translate(
+                            offset: const Offset(-7, 7), // x, y 축으로 이동시킬 수 있다.
+                            child: const Icon(
+                              Icons.euro_rounded,
+                              color: Colors.white,
+                              size: 88,
+                            ),
+                          ),
                         ),
                       ],
                     ),
