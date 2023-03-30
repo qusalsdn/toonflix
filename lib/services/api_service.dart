@@ -8,10 +8,10 @@ class ApiService {
   final String today = 'today';
 
   // 함수가 비동기 함수이고 리턴값이 있다면 Future로 타입을 지정해줘야 한다.
+  // Future는 미래에 받을 값의 타입을 알려준다.
   Future<List<WebtoonModel>> getTodaysToons() async {
     List<WebtoonModel> webtoonInstances = [];
     final url = Uri.parse('$baseUrl/$today');
-    // Future는 미래에 받을 값의 타입을 알려준다.
     final response = await http.get(url);
     if (response.statusCode == 200) {
       final List<dynamic> webtoons = jsonDecode(response.body);
@@ -19,8 +19,7 @@ class ApiService {
         webtoonInstances.add(WebtoonModel.fromJson(webtoon));
       }
       return webtoonInstances;
-    } else {
-      throw Error();
     }
+    throw Error();
   }
 }
