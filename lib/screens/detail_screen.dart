@@ -24,6 +24,7 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   void initState() {
     super.initState();
+    // 유저가 클릭한 웹툰의 id가 필요한데 이 때는 initState에 접근할 필요가 있기 때문에 StatefulWidget으로 변경하였다.
     // widget.id를 하는 이유는 별개의 class에서 작업을 하고 있기 때문이다.
     // State class에서 해당 데이터를 받기 위해 widget.id를 통해 참조할 수 있다.
     webtoon = ApiService.getToonById(widget.id);
